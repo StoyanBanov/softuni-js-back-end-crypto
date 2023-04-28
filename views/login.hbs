@@ -1,0 +1,23 @@
+<!-- In case of error, you should display div with class "errorContainer" -->
+<!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+{{#if errorsObj}}
+<div>
+    <div class="errorContainer">
+        {{#each errorsObj.messages}}
+        <p>{{this}}</p>
+        {{/each}}
+    </div>
+</div>
+{{/if}}
+
+<div class="login-box">
+    <h1>Login</h1>
+    <form action="/auth/login" method="post">
+        <label>Email</label>
+        <input type="text" name="email" placeholder="Email.." value="{{userData.email}}">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Password..">
+        <input type="submit" value="Submit">
+    </form>
+    <p>Not have an account? <a href="/auth/register">Register here</a></p>
+</div>
